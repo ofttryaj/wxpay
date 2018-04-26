@@ -1,0 +1,17 @@
+{
+    "name": "wlfg/wxpay",
+    "description": "improve wxpay sdk",
+    "type": "library",
+    "authors": [
+        {
+            "name": "ofttryaj",
+            "email": "ofttryaj@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "wxpay\\": "src/"
+        }
+    }
+}
