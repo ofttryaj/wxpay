@@ -20,19 +20,19 @@ class WxPayConfig
      * 获取地址：https://mp.weixin.qq.com/advanced/advanced?action=dev&t=advanced/dev&token=2005451881&lang=zh_CN
      * @var string
      */
-    const APPID = 'wx426b3015555a46be';
-    const MCHID = '1900009851';
-    const KEY = '8934e7d15453e97507ef794cf7b0519d';
-    const APPSECRET = '7813490da6f1265e4901ffb80afaa36f';
+    public static $appid;
+    public static $mchid;
+    public static $key;
+    public static $appsecret;
 
     //=======【证书路径设置】=====================================
     /**
      * TODO：设置商户证书路径
-     * 证书路径,注意应该填写绝对路径（仅退款、撤销订单时需要，可登录商户平台下载，
+     * 证书路径,应该填写绝对路径（仅退款、撤销订单时需要，可登录商户平台下载，
      * API证书下载地址：https://pay.weixin.qq.com/index.php/account/api_cert，下载之前需要安装商户操作证书）
      */
-    const SSLCERT_PATH = '../cert/apiclient_cert.pem';
-    const SSLKEY_PATH = '../cert/apiclient_key.pem';
+    public static $sslcert_path;
+    public static $sslkey_path;
 
     //=======【curl代理设置】===================================
     /**
@@ -40,8 +40,8 @@ class WxPayConfig
      * 本例程通过curl使用HTTP POST方法，此处可修改代理服务器，
      * 默认CURL_PROXY_HOST=0.0.0.0和CURL_PROXY_PORT=0，此时不开启代理（如有需要才设置）
      */
-    const CURL_PROXY_HOST = "0.0.0.0";//"10.152.18.220";
-    const CURL_PROXY_PORT = 0;//8080;
+    public static $curl_proxy_host = "0.0.0.0";//"10.152.18.220";
+    public static $curl_proxy_port = 0;//8080;
 
     //=======【上报信息配置】===================================
     /**
@@ -51,5 +51,50 @@ class WxPayConfig
      * 上报等级，0.关闭上报; 1.仅错误出错上报; 2.全量上报
      * @var int
      */
-    const REPORT_LEVENL = 1;
+    public static $report_level = 1;
+
+    /**
+     * @var string 回调地址
+     */
+    public static $notify_url;
+
+    /**
+     * 设置公众账号信息
+     *
+     * @param string $appid
+     * @param string $mchid
+     * @param string $key
+     * @param string $appsecret
+     */
+    public static function setOfficalAccount($appid, $mchid, $key, $appsecret)
+    {
+        self::$appid = $appid;
+        self::$mchid = $mchid;
+        self::$key = $key;
+        self::$appsecret = $appsecret;
+    }
+
+    /**
+     * 设置证书路径
+     *
+     * @param string $sslcert_path
+     * @param string $sslkey_path
+     */
+    public static function setSslPath($sslcert_path, $sslkey_path)
+    {
+        self::$sslcert_path = $sslcert_path;
+        self::$sslkey_path = $sslkey_path;
+    }
+
+    /**
+     * 设置代理
+     *
+     * @param string $curl_proxy_host
+     * @param int $curl_proxy_prot
+     */
+    public static function setProxy($curl_proxy_host, $curl_proxy_prot)
+    {
+        self::$curl_proxy_host = $curl_proxy_host;
+        self::$curl_proxy_port = $curl_proxy_prot;
+    }
 }

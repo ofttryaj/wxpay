@@ -6,8 +6,6 @@ use wxpay\WxPayException;
 /**
  *
  * 接口调用结果类
- * @author widyhu
- *
  */
 class WxPayResults extends WxPayDataBase
 {

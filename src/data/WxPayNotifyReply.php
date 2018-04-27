@@ -4,8 +4,6 @@ namespace wxpay\data;
 /**
  *
  * 回调基础类
- * @author widyhu
- *
  */
 class WxPayNotifyReply extends  WxPayDataBase
 {
